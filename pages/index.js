@@ -1,6 +1,7 @@
 import Link from 'next/Link';
 import { useRouter } from 'next/router';
 function Home() {
+    
     const router = useRouter();
 
     const handleOrder = () => {
