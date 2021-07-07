@@ -1,3 +1,5 @@
+import User from "../components/user";
+
 // Our component will receive props at build Time(Static generation with data)
 function UsersList({ users }) {
     return (
@@ -8,8 +10,7 @@ function UsersList({ users }) {
                 users.map(user => {
                     return (
                         <div key={user.id}>
-                            <p>{user.name}</p>
-                            <p>{user.email}</p>
+                            <User user={user} />
                         </div>
                     )
                 })
