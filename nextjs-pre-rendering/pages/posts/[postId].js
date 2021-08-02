@@ -43,7 +43,7 @@ export async function getStaticProps(context) {
 
     return {
         props: {
-            post: data
+            post: data 
         }
     }
 }
