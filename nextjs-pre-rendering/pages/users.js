@@ -22,6 +22,8 @@ function UsersList({ users }) {
 
 export default UsersList
 
+// Runs only Server side
+// Therefore, we can do backend operations here like DB queries, handling files using fs module and so on.
 export async function getStaticProps() {
     const response = await fetch('https://jsonplaceholder.typicode.com/users');
 
