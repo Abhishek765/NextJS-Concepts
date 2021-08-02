@@ -25,25 +25,9 @@ export async function getStaticPaths() {
     })
 
     return {
-        // paths: [
-        //     {
-        //         params: { postId: '1' }
-        //     },
-        //     {
-        //         params: { postId: '2' }
-        //     },
-        //     {
-        //         params: { postId: '3' }
-        //     },
-        //     {
-        //         params: { postId: '4' }
-        //     },
-        //     {
-        //         params: { postId: '9' } // Note that I display 10 posts and mentioning 9th post also as a possible value
-        //     },
-        // ],
         paths,
-        fallback: false
+        fallback: false /* 1. fallback set to false lets to create all paths HTMl pages at build time
+                        2. if fallback set to false then a 404 page is returned when path is doesn't exists for ex-> /posts/101 ->will return a 404 page */
     }
 }
 
