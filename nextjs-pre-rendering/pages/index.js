@@ -10,6 +10,11 @@ function Home() {
         Users
       </a>
     </Link>
+    <Link href='/posts'>
+      <a>
+        Posts
+      </a>
+    </Link>
   </>
 }
 
