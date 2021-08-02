@@ -13,25 +13,36 @@ export default Post;
 
 // function to tell Next.js All possible paths to render statically
 export async function getStaticPaths() {
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const data = await res.json();
+
+    const paths = data.map(post => {
+        return {
+            params: {
+                postId: `${post.id}`
+            }
+        }
+    })
 
     return {
-        paths: [
-            {
-                params: { postId: '1' }
-            },
-            {
-                params: { postId: '2' }
-            },
-            {
-                params: { postId: '3' }
-            },
-            {
-                params: { postId: '4' }
-            },
-            {
-                params: { postId: '9' } // Note that I display 10 posts and mentioning 9th post also as a possible value
-            },
-        ],
+        // paths: [
+        //     {
+        //         params: { postId: '1' }
+        //     },
+        //     {
+        //         params: { postId: '2' }
+        //     },
+        //     {
+        //         params: { postId: '3' }
+        //     },
+        //     {
+        //         params: { postId: '4' }
+        //     },
+        //     {
+        //         params: { postId: '9' } // Note that I display 10 posts and mentioning 9th post also as a possible value
+        //     },
+        // ],
+        paths,
         fallback: false
     }
 }
@@ -43,7 +54,7 @@ export async function getStaticProps(context) {
 
     return {
         props: {
-            post: data 
+            post: data
         }
     }
 }
